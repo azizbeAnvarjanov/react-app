@@ -1,11 +1,13 @@
 import React from 'react';
 import './navbar.css';
 import { useState } from 'react';
+import { FiMenu } from 'react-icons/fi';
 
 
-const navbar = () => {
+const Navbar = () => {
 
     const [color, setColor] = useState(false);
+    const [navbar, setnavbar] = useState(false);
 
     window.addEventListener('scroll', () => {
         if (window.scrollY >= 100) {
@@ -14,16 +16,17 @@ const navbar = () => {
             setColor(false);
         }
     });
-
+    
+    const toggle = () => {
+      if (!navbar) {
+        setnavbar(true);
+      }else{
+        setnavbar(false);
+      }
+    }
 
   return (
     <nav className={color ? "nav-active" : ""}>
-      <div className="left-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#book">Book-Table</a>
-      </div>
       <div className="logo-box">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150.96 141.779">
           <defs></defs>
@@ -165,14 +168,23 @@ const navbar = () => {
         </svg>
       </div>
       <h2>Food Hut</h2>
-      <div className="right-links">
-        <a href="#blog">Blog</a>
-        <a href="#review">Reviews</a>
-        <a href="#footer">Contact Us</a>
-        <button>Components</button>
-      </div>
+      <div className='menu' onClick={toggle}><FiMenu /></div>
+      <ul className={navbar ? 'toggle' : ''}>
+        <div className="left-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#book">Book-Table</a>
+        </div>
+        <div className="right-links">
+          <a href="#blog">Blog</a>
+          <a href="#review">Reviews</a>
+          <a href="#footer">Contact Us</a>
+          <button>Components</button>
+        </div>
+      </ul>
     </nav>
   );
 }
 
-export default navbar
+export default Navbar

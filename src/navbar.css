@@ -1,8 +1,5 @@
 nav {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 0 25px;
     height: 25vh;
     position: fixed;
@@ -11,6 +8,19 @@ nav {
     z-index: 999;
     transition: .5s;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+nav ul
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .5s;
 }
 
 
@@ -147,6 +157,19 @@ nav h2
 }
 
 
+.menu
+{
+    display: none;
+}
+
+
+
+.toggle
+{
+    left: 0;
+}
+
+
 
 
 
@@ -161,4 +184,72 @@ nav h2
 
     
 
+}
+
+@media (max-width: 760px) {
+    nav ul
+    {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        width: 70%;
+        height: 100vh;
+        background: #343a40;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    nav h2, .logo-box
+    {
+        display: block;
+        left: 100px;
+        width: 90px;
+        height: 90px;
+    }
+        
+    nav h2
+    {
+        width: 200px;
+        top: 200%;
+        left: 22%;
+        height: auto;
+    }
+ 
+
+
+    .left-links, .right-links
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .menu
+    {
+        position: absolute;
+        right: 20px;
+        top: 55%;
+        transform: translateY(-50%);
+        font-size: 2em;
+        color: #fff;
+        display: block;
+    }
+}
+
+
+
+
+@media (max-width: 400px) {
+    nav h2
+    {
+        font-size: 1.2em;
+        left: 33%;
+    }
+
+    .logo-box
+    {
+        left: 18%;
+        width: 80px;
+    }
 }

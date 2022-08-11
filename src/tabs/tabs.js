@@ -11,6 +11,7 @@ import Img6 from '../imgs/blog-6.jpg'
 const tabs = () => {
    
 
+
   return (
     <div id='blog' className="tabs">
       <div className="tabs-header">
